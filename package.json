@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://undozen@stash.creditcloud.com:7990/scm/ccfe/ccc-uikit.git"
+    "url": "https://github.com/undoZen/htmlxify.git"
   },
   "author": "undoZen <opensource@undozen.com>",
   "license": "MIT",
