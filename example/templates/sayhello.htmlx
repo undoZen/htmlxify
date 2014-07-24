@@ -1,8 +1,8 @@
-var chinese = require('./chinese.htmlx')(ctx);
+var chinese = require('./chinese.htmlx')(ctx); //pass down context to partial
 var Profile = require('../components/profile.js');
-return 'htmlx below',
+return 'htmlx below', //don't forget this line, it separate requires and output
 <div>
   <p>Hello, {props.name}</p>
-  <chinese/>
-  <Profile age={props.age} email={props.email}/>
+  <chinese/> {/* partials should not hav children */}
+  <Profile age={props.age} email={props.email}/> {/* use react components as usual */}
 </div>
