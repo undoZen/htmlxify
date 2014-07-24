@@ -1,0 +1,24 @@
+{
+  "name": "htmlxfiy",
+  "version": "0.0.0",
+  "description": "write react templates in separate *.htmlx files and bundle them with browserify.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://undozen@stash.creditcloud.com:7990/scm/ccfe/ccc-uikit.git"
+  },
+  "author": "undoZen <opensource@undozen.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react-tools": "^0.11.0",
+    "through2": "^0.5.1"
+  },
+  "devDependencies": {
+    "browserify": "^5.0.7",
+    "express": "^4.6.1",
+    "react": "^0.11.0"
+  }
+}
