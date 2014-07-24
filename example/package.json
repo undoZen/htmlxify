@@ -1,0 +1,22 @@
+{
+  "name": "htmlxify-example",
+  "version": "0.0.0",
+  "description": "An example of htmlxify",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lib": "./node_modules/.bin/browserify -d -r react >lib.debug.js && NODE_ENV=production ./node_modules/.bin/browserify -r react | ./node_modules/.bin/uglifyjs >lib.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/undoZen/htmlxify.git"
+  },
+  "author": "undoZen <opensource@undozen.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^5.0.7",
+    "express": "^4.6.1",
+    "react": "^0.11.0",
+    "uglify-js": "^2.4.15"
+  }
+}

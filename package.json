@@ -15,10 +15,5 @@
   "dependencies": {
     "react-tools": "^0.11.0",
     "through2": "^0.5.1"
-  },
-  "devDependencies": {
-    "browserify": "^5.0.7",
-    "express": "^4.6.1",
-    "react": "^0.11.0"
   }
 }

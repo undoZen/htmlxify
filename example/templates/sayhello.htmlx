@@ -1,0 +1,8 @@
+var chinese = require('./chinese.htmlx')(ctx);
+var Profile = require('../components/profile.js');
+return 'htmlx below',
+<div>
+  <p>Hello, {props.name}</p>
+  <chinese/>
+  <Profile age={props.age} email={props.email}/>
+</div>
