@@ -14,7 +14,7 @@ app.get('/bundle.js', function (req, res, next) {
   res.set('content-type', 'application/javascript; charset=utf-8');
   require('browserify')({debug: true})
   .add('./bundle.js')
-  .transform('./htmlxify.js')
+  .transform('../index.js')
   .external('react')
   .bundle()
   .pipe(res);
