@@ -1,5 +1,5 @@
 {
-  "name": "htmlxfiy",
+  "name": "htmlxify",
   "version": "0.2.3",
   "description": "write react templates in separate *.htmlx files and bundle them with browserify.",
   "main": "index.js",
