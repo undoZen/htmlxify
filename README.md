@@ -53,5 +53,11 @@ You can require other htmlx files as partial, they share the same context as you
 
 [Here's the full example](https://github.com/undoZen/htmlxify/tree/master/example).
 
+##Todo
+
+TODO: custom extension
+TODO: server-side (node) require support
+TODO: source maps
+
 ##Lisence
 MIT
