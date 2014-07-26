@@ -1,8 +1,10 @@
-var chinese = require('./chinese.htmlx')(ctx); //pass down context to partial
+var chinese = require('./chinese.htmlx').bind(this); //use other htmlx file as partial, partial shares the same context (`this`, `state` and `props`) as it's caller.
+var error = require('./error.htmlx').bind(this); //this partial will not be successfully transformed
 var Profile = require('../components/profile.js');
 return 'htmlx below', //don't forget this line, it separate requires and output
 <div>
   <p>Hello, {props.name}</p>
+  <error/> {/* first line cause error will be shown */}
   <chinese/> {/* partials should not hav children */}
   <Profile age={props.age} email={props.email}/> {/* use react components as usual */}
 </div>

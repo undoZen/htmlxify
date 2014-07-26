@@ -1,0 +1,7 @@
+return 'htmlx below',
+<div>
+  error demo
+  <p>{//You can't use single line comment here like this, instead always use multiple line comments}
+    this will never show
+  </p>
+</div>

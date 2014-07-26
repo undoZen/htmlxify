@@ -25,10 +25,7 @@ Using browserify and htmlxify, you can change this example into two files:
 hello.js:
 
     var HelloMessage = React.createClass({
-      render: function() {
-        var helloTemplate = require('./hello.htmlx')(this); //pass context
-        return helloTemplate();
-      }
+      render: require('./hello.htmlx')
     });
 
     React.renderComponent(HelloMessage({name: "John"}), mountNode);
@@ -38,11 +35,11 @@ hello.htmlx
     return 'htmlx below', // don't forget this line, it indicates codes below will be transformed to react dom dsl.
     <div>Hello {props.name}</div>
 
-htmlxify will give you three local variables: `ctx` is the same as this, `state` and `props` are just `this.state` and `this.props` shortcuts.
+htmlxify will give you two local variables: `state` and `props`, which are just `this.state` and `this.props` shortcuts.
 
 You can require other htmlx files as partial, they share the same context as you pass to them.
 
-    var chinese = require('./chinese.htmlx')(ctx); //pass down context to partial
+    var chinese = require('./chinese.htmlx').bind(this); //bind call is require
     var Profile = require('../components/profile.js');
     return 'htmlx below', //don't forget this line, it separate requires and output
     <div>
@@ -55,9 +52,8 @@ You can require other htmlx files as partial, they share the same context as you
 
 ##Todo
 
-TODO: custom extension
-TODO: server-side (node) require support
-TODO: source maps
+* TODO: server-side (node) require support
+* TODO: source maps
 
 ##Lisence
 MIT

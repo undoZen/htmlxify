@@ -1,21 +1,19 @@
 var app = require('express')();
+var browserify = require('browserify');
+var watchify = require('watchify');
+var extend = require('extend');
 
 app.get('/', function (req, res, next) {
   res.set('text/html', 'application/javascript; charset=utf-8');
   res.sendfile(__dirname + '/index.html');
 });
 
-app.get('/lib.js', function (req, res, next) {
-  res.type('js');
-  res.sendfile(__dirname + (app.get('env') == 'production' ? '/lib.js' : '/lib.debug.js'));
-});
-
 app.get('/bundle.js', function (req, res, next) {
   res.set('content-type', 'application/javascript; charset=utf-8');
-  require('browserify')({debug: true})
-  .add('./bundle.js')
-  .transform('../index.js')
-  .external('react')
+  var b = browserify(extend({debug: true}, watchify.args));
+  watchify(b);
+  b.add('./bundle.js')
+  .transform(require('../index.js')())
   .bundle()
   .pipe(res);
 });
