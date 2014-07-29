@@ -13,7 +13,7 @@ module.exports = function (ext) {
         var htmlx;
         try {
           htmlx = reactTools.transform(
-            '/** @jsx React.DOM */ function htmlx(state, props) { '+buf.toString('utf8')+'};'
+            '/** @jsx React.DOM */ function htmlx(state, props) { "use strict"; '+buf.toString('utf8')+'};'
           , {filename: file});
         } catch (err) {
           htmlx = 'function htmlx(state, props) { return React.DOM.span({style: {color: "red"}}, "'+
