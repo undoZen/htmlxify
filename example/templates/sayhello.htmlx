@@ -3,7 +3,7 @@ var error = require('./error.htmlx').bind(this); //this partial will not be succ
 var Profile = require('../components/profile.js');
 return 'htmlx below', //don't forget this line, it separate requires and output
 <div>
-  <p>Hello, {props.name}</p>
+  <p class="not className">Hello, {props.name}</p> {/*class= will be replaced with className=*/}
   <error/> {/* first line cause error will be shown */}
   <chinese/> {/* partials should not hav children */}
   <Profile age={props.age} email={props.email}/> {/* use react components as usual */}

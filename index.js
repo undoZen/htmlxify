@@ -11,9 +11,11 @@ module.exports = function (ext) {
     return through(function (buf, enc, next) {
       if (path.extname(file) === ext) {
         var htmlx;
+        var content = buf.toString('utf8');
+        content = content.replace(/(<[^>]+)(class=)([^>]+>)/g, "$1className=$3");
         try {
           htmlx = reactTools.transform(
-            '/** @jsx React.DOM */ function htmlx(state, props) { "use strict"; '+buf.toString('utf8')+'};'
+            '/** @jsx React.DOM */ function htmlx(state, props) { "use strict"; '+content+'};'
           , {filename: file});
         } catch (err) {
           htmlx = 'function htmlx(state, props) { return React.DOM.span({style: {color: "red"}}, "'+
