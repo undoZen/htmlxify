@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 var through = require('through2');
-var reactTools = require('react-tools');
+var htmlx = require('htmlx');
 
 module.exports = function (ext) {
   ext = ext || '.htmlx';
@@ -11,21 +11,7 @@ module.exports = function (ext) {
   return function (file) {
     return through(function (buf, enc, next) {
       if (path.extname(file) === ext) {
-        var htmlx;
-        var content = buf.toString('utf8');
-        content = content.replace(/(<[^>]+)(class=)([^>]+>)/g, "$1className=$3");
-        try {
-          htmlx = reactTools.transform(
-            '/** @jsx React.DOM */ function htmlx(state, props) { "use strict"; '+content+'};'
-          , {filename: file});
-        } catch (err) {
-          htmlx = 'function htmlx(state, props) { return React.DOM.span({style: {color: "red"}}, "'+
-            file+' transform failed", React.DOM.br(null), "lineNumber: '+err.lineNumber+
-            '", React.DOM.br(null), " column: '+err.column+
-            '", React.DOM.br(null), " message: '+err.message+'");}'
-        }
-        var exp = 'var React = require("react"); module.exports = function () { return htmlx.call(this, this.state, this.props); }; '+htmlx;
-        this.push(exp);
+        this.push(htmlx(buf.toString('utf-8'), file));
       } else {
         this.push(buf);
       }

@@ -13,7 +13,7 @@
   "author": "undoZen <opensource@undozen.com>",
   "license": "MIT",
   "dependencies": {
-    "react-tools": "^0.11.0",
+    "htmlx": "^0.1.0",
     "through2": "^0.5.1"
   }
 }
